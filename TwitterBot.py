@@ -37,7 +37,7 @@ class ReplyToTweet(StreamListener):
 			screenName = tweet.get('user',{}).get('screen_name')
 			tweetText = tweet.get('text')
 
-			chatResponse = Docs.transformation(tweetText.split('@PDFbot ')[-1])
+			chatResponse = Docs.transformation(tweetText.split('@... ')[-1])
 
 			replyText = '@' + screenName + ' ' + chatResponse
 
@@ -46,7 +46,7 @@ class ReplyToTweet(StreamListener):
 
 			print('Tweet ID: ' + tweetId)
 			print('From: ' + screenName)
-			print('Tweet Text: ' + tweetText.split('@PDFbot ')[-1])
+			print('Tweet Text: ' + tweetText.split('@... ')[-1])
 			print('Reply Text: ' + replyText)
 
 			twitterApi.update_status(status=replyText)
