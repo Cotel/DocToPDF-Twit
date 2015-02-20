@@ -56,5 +56,8 @@ def transformation(url):
 
 	# uploads file to ge.tt
 	#os.system('gett '+file_name+".pdf")
-	return os.popen('gett '+file_name+'.pdf').read()
+	x = os.popen('gett '+file_name+'.pdf').read()
+	os.remove(file_name)
+	os.remove(file_name+'.pdf')
+	return x
 
